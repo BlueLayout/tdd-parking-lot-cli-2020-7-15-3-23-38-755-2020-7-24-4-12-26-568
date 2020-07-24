@@ -4,6 +4,7 @@ import com.oocl.cultivation.Car;
 import com.oocl.cultivation.CarTicket;
 import com.oocl.cultivation.ParkingBoy;
 import org.junit.jupiter.api.Test;
+import sun.security.krb5.internal.PAData;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -24,5 +25,17 @@ class ParkingBoyFacts {
 
         //then
         assertNotNull(carTicket);
+    }
+
+    @Test
+    void should_return_car_when_parking_boy_fetch_car_given_carTicket() {
+        //given
+        CarTicket carTicket = new CarTicket();
+
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car car = parkingBoy.fetch(carTicket);
+        //then
+        assertNotNull(car);
     }
 }
