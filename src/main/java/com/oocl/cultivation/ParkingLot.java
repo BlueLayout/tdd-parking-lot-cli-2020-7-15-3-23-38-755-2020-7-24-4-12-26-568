@@ -20,6 +20,10 @@ public class ParkingLot {
         return carTicket;
     }
 
+    public Car carOut(CarTicket carTicket){
+        return new Car();
+    }
+
     public Map<CarTicket, Car> getParkingRooms() {
         return parkingRooms;
     }
