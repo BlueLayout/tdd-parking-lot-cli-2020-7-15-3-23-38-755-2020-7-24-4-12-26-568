@@ -3,12 +3,14 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.CarTicket;
 import com.oocl.cultivation.ParkingBoy;
+import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 import sun.security.krb5.internal.PAData;
 
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ParkingBoyFacts {
@@ -21,9 +23,9 @@ class ParkingBoyFacts {
     void should_return_ticket_when_parking_boy_park_given_car() {
         //given
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy();
 
         //when
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         CarTicket carTicket = parkingBoy.park(car);
 
         //then
@@ -36,7 +38,7 @@ class ParkingBoyFacts {
         CarTicket carTicket = new CarTicket();
 
         //when
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = parkingBoy.fetch(carTicket);
         //then
         assertNotNull(car);
@@ -49,15 +51,16 @@ class ParkingBoyFacts {
         Car car2 = new Car();
         Car car3 = new Car();
         Car[] cars = {car1, car2, car3};
-        ParkingBoy parkingBoy = new ParkingBoy();
+
         //when
-        Map<CarTicket,Car> carTicketMap =  parkingBoy.park(cars);
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        for (Car car:cars
+             ) {
+            parkingBoy.park(car);
+        }
+
         //then
-        assertNotNull(carTicketMap);
+        assertEquals(parkingBoy.getParkingLot().getParkingRooms().size(),3);
     }
 
-    @Test
-    void should_return_no_car_when_parking_boy_fetch_given_invalid_ticket() {
-
-    }
 }

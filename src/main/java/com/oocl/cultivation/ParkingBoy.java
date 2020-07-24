@@ -7,8 +7,16 @@ public class ParkingBoy {
 
     private ParkingLot parkingLot;
 
-    public ParkingBoy() {
-        this.parkingLot = new ParkingLot();
+    public ParkingLot getParkingLot() {
+        return parkingLot;
+    }
+
+    public void setParkingLot(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
+
+    public ParkingBoy(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
     }
 
     public CarTicket park(Car car) {
@@ -19,14 +27,14 @@ public class ParkingBoy {
         return parkingLot.carOut(carTicket);
     }
 
-    public Map<CarTicket,Car> park(Car... cars){
+    /*public Map<CarTicket,Car> park(Car... cars){
         Map<CarTicket,Car> parkingRoom = new HashMap<>();
         for (Car car:cars
-             ) {
+        ) {
             CarTicket carTicket = parkingLot.carIn(car);
             parkingRoom.put(carTicket,car);
         }
         return parkingRoom;
-    }
+    }*/
 
 }

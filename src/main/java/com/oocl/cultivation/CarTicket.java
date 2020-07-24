@@ -6,6 +6,10 @@ public class CarTicket {
 
     private String ticketBarcode;
 
+    public CarTicket(String ticketBarcode) {
+        this.ticketBarcode = ticketBarcode;
+    }
+
     public CarTicket() {
         this.ticketBarcode = getRandomNum();
     }

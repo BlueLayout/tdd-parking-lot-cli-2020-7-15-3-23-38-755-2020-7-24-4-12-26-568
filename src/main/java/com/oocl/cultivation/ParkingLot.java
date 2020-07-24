@@ -21,7 +21,7 @@ public class ParkingLot {
     }
 
     public Car carOut(CarTicket carTicket){
-        return new Car();
+        return parkingRooms.get(carTicket);
     }
 
     public Map<CarTicket, Car> getParkingRooms() {
