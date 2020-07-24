@@ -6,6 +6,9 @@ import com.oocl.cultivation.ParkingBoy;
 import org.junit.jupiter.api.Test;
 import sun.security.krb5.internal.PAData;
 
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ParkingBoyFacts {
@@ -37,5 +40,24 @@ class ParkingBoyFacts {
         Car car = parkingBoy.fetch(carTicket);
         //then
         assertNotNull(car);
+    }
+
+    @Test
+    void should_return_more_ticket_when_parking_boy_park_given_more_car() {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Car car3 = new Car();
+        Car[] cars = {car1, car2, car3};
+        ParkingBoy parkingBoy = new ParkingBoy();
+        //when
+        Map<CarTicket,Car> carTicketMap =  parkingBoy.park(cars);
+        //then
+        assertNotNull(carTicketMap);
+    }
+
+    @Test
+    void should_return_no_car_when_parking_boy_fetch_given_invalid_ticket() {
+
     }
 }
