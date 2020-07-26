@@ -1,45 +1,70 @@
 package com.oocl.cultivation;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ParkingBoy {
 
-    private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
 
-    public ParkingLot getParkingLot() {
-        return parkingLot;
+
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
-    public void setParkingLot(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
     }
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+    public void setParkingLots(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     public CarTicket park(Car car) {
-        return parkingLot.carIn(car);
+        CarTicket carTicket;
+        for (ParkingLot parkingLot:parkingLots
+             ) {
+            if (parkingLot.checkSurplusCapacity()!=0){
+               carTicket =  parkingLot.carIn(car);
+               return carTicket;
+            }
+        }
+        return null;
     }
 
     public Car fetch(CarTicket carTicket) {
-        return parkingLot.carOut(carTicket);
+        for (ParkingLot parkingLot:parkingLots
+             ) {
+            Car car = parkingLot.carOut(carTicket);
+            if (car!=null){
+                return car;
+            }
+        }
+        return null;
     }
 
     public String queryMessage(CarTicket carTicket) {
         if (carTicket==null){
             return "Please provide your parking ticket.";
         }
-        boolean  isContainsTicket = parkingLot.getParkingRooms().containsKey(carTicket);
-        if (!isContainsTicket){
-            return "Unrecognized parking ticket.";
+        for (ParkingLot parkingLot:parkingLots
+             ) {
+            boolean isContainsTicket = parkingLot.getParkingRooms().containsKey(carTicket);
+            if (isContainsTicket){
+                return null;
+            }
         }
-        return null;
+        return "Unrecognized parking ticket.";
     }
 
     public String queryParkMessage(Car car){
-        if (parkingLot.checkSurplusCapacity()==0){
+        int capacity = 0;
+        for (ParkingLot parkingLot:parkingLots
+             ) {
+            capacity += parkingLot.getParkingRooms().size();
+        }
+        if (capacity == 20){
             return "Not enough position.";
         }
         return null;
