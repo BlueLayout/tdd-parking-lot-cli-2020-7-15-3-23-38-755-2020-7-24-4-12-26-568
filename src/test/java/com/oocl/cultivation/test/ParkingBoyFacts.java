@@ -24,7 +24,7 @@ class ParkingBoyFacts {
     void should_return_ticket_when_parking_boy_park_given_car() {
         //given
         Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
 
@@ -40,7 +40,7 @@ class ParkingBoyFacts {
     void should_return_car_when_parking_boy_fetch_car_given_carTicket() {
         //given
         CarTicket carTicket = new CarTicket();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
 
@@ -58,7 +58,7 @@ class ParkingBoyFacts {
         Car car2 = new Car();
         Car car3 = new Car();
         Car[] cars = {car1, car2, car3};
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
 

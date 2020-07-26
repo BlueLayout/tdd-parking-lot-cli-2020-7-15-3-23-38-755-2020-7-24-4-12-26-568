@@ -16,7 +16,7 @@ public class ParkingLotTest {
     @Test
     void should_return_car_when_parkingLot_fetch_given_current_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -33,7 +33,7 @@ public class ParkingLotTest {
     @Test
     void should_return_no_car_when_parkingLot_fetch_given_wrong_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -50,7 +50,7 @@ public class ParkingLotTest {
     @Test
     void should_return_no_car_when_parkingLot_fetch_given_repeat_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
@@ -68,7 +68,7 @@ public class ParkingLotTest {
     void should_return_no_ticket_when_parkingLot_park_given_11_car() {
 
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
@@ -85,7 +85,7 @@ public class ParkingLotTest {
     @Test
     void should_return_unrecognized_parking_ticket_when_parkingBoy_query_message_given_repeat_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -103,7 +103,7 @@ public class ParkingLotTest {
     @Test
     void should_return_please_provide_your_parking_ticket_when_parkingBoy_query_message_given_null_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
@@ -120,7 +120,7 @@ public class ParkingLotTest {
     @Test
     void should_return_not_enough_position_when_parkingBoy_queryParkMessage_given_parking_is_full() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         parkingLots.add(parkingLot);
@@ -141,8 +141,8 @@ public class ParkingLotTest {
     void should_return_ticket_when_parkingBoy_park_given_car_11() {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
+        parkingLots.add(new ParkingLot(10));
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
