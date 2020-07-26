@@ -1,14 +1,13 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.ParkingManager;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ParkingManagerTest {
 
@@ -25,5 +24,18 @@ public class ParkingManagerTest {
 
         //then
         assertEquals(1,parkingManager.getParkingBoys().size());
+    }
+
+    @Test
+    void should_return_ticket_when_parkingManager_park_given_car() {
+        //given
+        ParkingLot parkingLot = new ParkingLot("1",10);
+
+        //when
+        ParkingManager parkingManager = new ParkingManager(parkingLot);
+        CarTicket carTicket = parkingManager.park(new Car());
+
+        //then
+        assertNotNull(carTicket);
     }
 }

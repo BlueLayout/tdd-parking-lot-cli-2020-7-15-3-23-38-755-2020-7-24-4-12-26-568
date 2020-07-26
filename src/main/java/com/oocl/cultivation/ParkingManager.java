@@ -21,4 +21,8 @@ public class ParkingManager {
     public void appendParkingBoy(ParkingBoy parkingBoy) {
         parkingBoys.add(parkingBoy);
     }
+
+    public CarTicket park(Car car) {
+        return null;
+    }
 }
