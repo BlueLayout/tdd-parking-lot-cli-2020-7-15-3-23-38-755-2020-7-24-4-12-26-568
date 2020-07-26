@@ -36,4 +36,7 @@ public class ParkingManager implements ParkingStaff{
         return parkingStaff.park(car);
     }
 
+    public Car executeFetch(CarTicket carTicket, ParkingStaff parkingStaff) {
+        return parkingStaff.fetch(carTicket);
+    }
 }
