@@ -39,6 +39,9 @@ public class ParkingBoy {
     }
 
     public String queryParkMessage(Car car){
+        if (parkingLot.checkSurplusCapacity()==0){
+            return "Not enough position.";
+        }
         return null;
     }
 }
