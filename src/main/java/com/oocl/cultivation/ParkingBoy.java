@@ -27,4 +27,7 @@ public class ParkingBoy {
         return parkingLot.carOut(carTicket);
     }
 
+    public String queryMessage(CarTicket carTicket) {
+        return null;
+    }
 }

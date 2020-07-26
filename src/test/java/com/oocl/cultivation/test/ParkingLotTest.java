@@ -6,8 +6,7 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
 
@@ -58,19 +57,34 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_ticket_when_parkingLot_park_given_11_car(){
+    void should_return_no_ticket_when_parkingLot_park_given_11_car() {
 
         //given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        for (int i=0;i<=9;i++){
+        for (int i = 0; i <= 9; i++) {
             parkingBoy.park(new Car());
         }
         CarTicket carTicket = parkingBoy.park(new Car());
 
         //then
         assertNull(carTicket);
+    }
+
+    @Test
+    void should_return_unrecognized_parking_ticket_when_parkingBoy_query_message_given_repeat_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Car car = new Car();
+
+        //when
+        CarTicket carTicket = parkingBoy.park(car);
+        Car carFetch = parkingBoy.fetch(carTicket);
+        String message = parkingBoy.queryMessage(carTicket);
+
+        //then
+        assertEquals("Unrecognized parking ticket.",message);
     }
 }
