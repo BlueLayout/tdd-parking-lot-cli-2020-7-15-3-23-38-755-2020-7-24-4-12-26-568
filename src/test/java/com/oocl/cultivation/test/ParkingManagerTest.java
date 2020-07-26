@@ -56,16 +56,33 @@ public class ParkingManagerTest {
     @Test
     void should_return_ticket_when_parkingManager_executePark_given_car_and_parkingBoy() {
         //given
-        ParkingLot parkingLot = new ParkingLot("1",10);
+        ParkingLot parkingLot = new ParkingLot("1", 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingManager parkingManager = new ParkingManager(parkingLot);
-        CarTicket carTicket = parkingManager.executePark(new Car(),parkingBoy);
+        CarTicket carTicket = parkingManager.executePark(new Car(), parkingBoy);
 
         //then
         assertNotNull(carTicket);
+    }
+
+    @Test
+    void should_return_car_when_parkingManager_executeFetch_given_ticket_and_parkingBoy() {
+        //given
+        ParkingLot parkingLot = new ParkingLot("1", 10);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingManager parkingManager = new ParkingManager(parkingLot);
+        CarTicket carTicket = parkingManager.park(new Car());
+        Car car = parkingManager.executeFetch(carTicket, parkingBoy);
+
+        //then
+        assertNotNull(car);
     }
 }
