@@ -56,4 +56,21 @@ public class ParkingLotTest {
         //then
         assertNull(carRepeat);
     }
+
+    @Test
+    void should_return_no_ticket_when_parkingLot_park_given_11_car(){
+
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        //when
+        for (int i=0;i<=9;i++){
+            parkingBoy.park(new Car());
+        }
+        CarTicket carTicket = parkingBoy.park(new Car());
+
+        //then
+        assertNull(carTicket);
+    }
 }
