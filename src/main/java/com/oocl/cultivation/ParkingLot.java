@@ -1,12 +1,11 @@
 package com.oocl.cultivation;
 
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
-
-    private CarTicket carTicket;
 
     private int capacity ;
 
@@ -40,5 +39,14 @@ public class ParkingLot {
 
     public int checkSurplusCapacity(){
         return capacity-parkingRooms.size();
+    }
+
+    public double getUseRateLot(){
+        BigDecimal p = BigDecimal.valueOf(parkingRooms.size());
+        BigDecimal c = BigDecimal.valueOf(capacity);
+        if (p.compareTo(BigDecimal.ZERO)!=0&&c.compareTo(BigDecimal.ZERO)!=0){
+            return p.divide(c,10,BigDecimal.ROUND_HALF_UP).doubleValue();
+        }
+        return 0;
     }
 }

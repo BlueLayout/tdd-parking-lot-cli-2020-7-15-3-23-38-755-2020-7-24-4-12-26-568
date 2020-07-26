@@ -23,6 +23,11 @@ public class SuperSmartParkingBoyTest {
         smallAvailablePositionRateLot.carIn(new Car());
         smallAvailablePositionRateLot.carIn(new Car());
         smallAvailablePositionRateLot.carIn(new Car());
+        smallAvailablePositionRateLot.carIn(new Car());
+        smallAvailablePositionRateLot.carIn(new Car());
+        smallAvailablePositionRateLot.carIn(new Car());
+        smallAvailablePositionRateLot.carIn(new Car());
+        smallAvailablePositionRateLot.carIn(new Car());
 
         ParkingLot largerAvailablePositionRateLot = new ParkingLot(10);
         largerAvailablePositionRateLot.carIn(new Car());
