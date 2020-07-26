@@ -25,4 +25,8 @@ public class ParkingManager {
     public CarTicket park(Car car) {
         return parkingLot.carIn(car);
     }
+
+    public Car fetch(CarTicket carTicket) {
+        return parkingLot.carOut(carTicket);
+    }
 }
