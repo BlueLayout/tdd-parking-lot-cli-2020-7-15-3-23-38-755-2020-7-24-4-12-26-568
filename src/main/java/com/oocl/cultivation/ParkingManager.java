@@ -19,5 +19,6 @@ public class ParkingManager {
     }
 
     public void appendParkingBoy(ParkingBoy parkingBoy) {
+        parkingBoys.add(parkingBoy);
     }
 }
