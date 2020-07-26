@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ParkingBoy {
+public class ParkingBoy implements ParkingStaff{
 
     private List<ParkingLot> parkingLots;
 
@@ -21,6 +21,7 @@ public class ParkingBoy {
         this.parkingLots = parkingLots;
     }
 
+    @Override
     public CarTicket park(Car car) {
         CarTicket carTicket;
         for (ParkingLot parkingLot:parkingLots
@@ -33,6 +34,7 @@ public class ParkingBoy {
         return null;
     }
 
+    @Override
     public Car fetch(CarTicket carTicket) {
         for (ParkingLot parkingLot:parkingLots
              ) {

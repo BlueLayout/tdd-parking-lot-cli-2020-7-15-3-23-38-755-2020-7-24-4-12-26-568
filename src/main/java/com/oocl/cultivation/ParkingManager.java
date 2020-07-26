@@ -3,30 +3,37 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingManager {
+public class ParkingManager implements ParkingStaff{
 
     private ParkingLot parkingLot;
 
-    private List<ParkingBoy> parkingBoys;
+    private List<ParkingStaff> parkingStaffs;
 
     public ParkingManager(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
-        parkingBoys = new ArrayList<>();
+        parkingStaffs = new ArrayList<>();
     }
 
-    public List<ParkingBoy> getParkingBoys() {
-        return parkingBoys;
+    public List<ParkingStaff> getParkingStaff() {
+        return parkingStaffs;
     }
 
-    public void appendParkingBoy(ParkingBoy parkingBoy) {
-        parkingBoys.add(parkingBoy);
+    public void appendParkingBoy(ParkingStaff parkingStaff) {
+        parkingStaffs.add(parkingStaff);
     }
 
+    @Override
     public CarTicket park(Car car) {
         return parkingLot.carIn(car);
     }
 
+    @Override
     public Car fetch(CarTicket carTicket) {
         return parkingLot.carOut(carTicket);
     }
+
+    public CarTicket executePark(Car car,ParkingStaff parkingStaff){
+        return parkingStaff.park(car);
+    }
+
 }
