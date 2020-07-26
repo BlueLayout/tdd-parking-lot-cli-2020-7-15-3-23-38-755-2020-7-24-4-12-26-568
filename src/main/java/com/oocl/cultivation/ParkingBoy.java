@@ -37,4 +37,8 @@ public class ParkingBoy {
         }
         return null;
     }
+
+    public String queryParkMessage(Car car){
+        return null;
+    }
 }
