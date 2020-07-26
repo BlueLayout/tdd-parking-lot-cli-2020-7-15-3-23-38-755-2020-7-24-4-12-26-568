@@ -7,6 +7,7 @@ import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ParkingLotTest {
 
@@ -22,6 +23,22 @@ public class ParkingLotTest {
         Car carFetched = parkingLot.carOut(carTicket);
 
         //then
-        assertNotNull(car);
+        assertNotNull(carFetched);
+    }
+
+    @Test
+    void should_return_no_car_when_parkingLot_fetch_given_wrong_ticket(){
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+
+        //when
+        CarTicket carTicket = parkingBoy.park(car);
+        CarTicket wrongTicket = new CarTicket();
+        Car carFetched = parkingLot.carOut(wrongTicket);
+
+        //then
+        assertNull(carFetched);
     }
 }
