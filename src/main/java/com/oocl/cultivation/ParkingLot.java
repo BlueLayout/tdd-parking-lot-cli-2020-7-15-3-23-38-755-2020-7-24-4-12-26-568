@@ -8,6 +8,8 @@ public class ParkingLot {
 
     private CarTicket carTicket;
 
+    private final int capacity = 10;
+
     private Map<CarTicket, Car> parkingRooms;
 
     public ParkingLot() {
@@ -15,9 +17,12 @@ public class ParkingLot {
     }
 
     public CarTicket carIn(Car car){
-        CarTicket carTicket = new CarTicket();
-        parkingRooms.put(carTicket, car);
-        return carTicket;
+        if (capacity>parkingRooms.size()){
+            CarTicket carTicket = new CarTicket();
+            parkingRooms.put(carTicket, car);
+            return carTicket;
+        }
+        return null;
     }
 
     public Car carOut(CarTicket carTicket){
