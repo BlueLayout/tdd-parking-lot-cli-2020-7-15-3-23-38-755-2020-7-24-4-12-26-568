@@ -23,6 +23,6 @@ public class ParkingManager {
     }
 
     public CarTicket park(Car car) {
-        return null;
+        return parkingLot.carIn(car);
     }
 }
