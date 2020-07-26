@@ -28,6 +28,9 @@ public class ParkingBoy {
     }
 
     public String queryMessage(CarTicket carTicket) {
+        if (carTicket==null){
+            return "Please provide your parking ticket.";
+        }
         boolean  isContainsTicket = parkingLot.getParkingRooms().containsKey(carTicket);
         if (!isContainsTicket){
             return "Unrecognized parking ticket.";
