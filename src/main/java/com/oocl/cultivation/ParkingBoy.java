@@ -27,14 +27,4 @@ public class ParkingBoy {
         return parkingLot.carOut(carTicket);
     }
 
-    /*public Map<CarTicket,Car> park(Car... cars){
-        Map<CarTicket,Car> parkingRoom = new HashMap<>();
-        for (Car car:cars
-        ) {
-            CarTicket carTicket = parkingLot.carIn(car);
-            parkingRoom.put(carTicket,car);
-        }
-        return parkingRoom;
-    }*/
-
 }
