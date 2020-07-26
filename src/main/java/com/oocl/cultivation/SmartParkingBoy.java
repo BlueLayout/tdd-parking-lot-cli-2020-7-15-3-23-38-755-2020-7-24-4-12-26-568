@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class SmartParkingBoy {
@@ -19,6 +20,12 @@ public class SmartParkingBoy {
     }
 
     public CarTicket park(Car car) {
+        CarTicket carTicket;
+        ParkingLot parkingLot = parkingLots.stream().max(Comparator.comparingInt(ParkingLot::checkSurplusCapacity)).orElse(null);
+        if (parkingLot!=null){
+            carTicket = parkingLot.carIn(car);
+            return carTicket;
+        }
         return null;
     }
 }

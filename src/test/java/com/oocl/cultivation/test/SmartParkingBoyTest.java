@@ -20,9 +20,9 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot moreParkingLot = new ParkingLot();
         moreParkingLot.carIn(new Car());
+        moreParkingLot.carIn(new Car());
+        moreParkingLot.carIn(new Car());
         ParkingLot lessParkingLot = new ParkingLot();
-        lessParkingLot.carIn(new Car());
-        lessParkingLot.carIn(new Car());
         lessParkingLot.carIn(new Car());
         parkingLots.add(moreParkingLot);
         parkingLots.add(lessParkingLot);
@@ -33,6 +33,6 @@ public class SmartParkingBoyTest {
         CarTicket carTicket = smartParkingBoy.park(car);
 
         //then
-        assertTrue(smartParkingBoy.getParkingLots().get(0).getParkingRooms().containsKey(carTicket));
+        assertTrue(smartParkingBoy.getParkingLots().get(1).getParkingRooms().containsKey(carTicket));
     }
 }
