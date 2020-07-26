@@ -23,7 +23,7 @@ public class ParkingManagerTest {
         parkingManager.appendParkingBoy(new ParkingBoy(parkingLots));
 
         //then
-        assertEquals(1, parkingManager.getParkingBoys().size());
+        assertEquals(1, parkingManager.getParkingStaff().size());
     }
 
     @Test
@@ -51,5 +51,21 @@ public class ParkingManagerTest {
 
         //then
         assertNotNull(car);
+    }
+
+    @Test
+    void should_return_ticket_when_parkingManager_executePark_given_car_and_parkingBoy() {
+        //given
+        ParkingLot parkingLot = new ParkingLot("1",10);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ParkingManager parkingManager = new ParkingManager(parkingLot);
+        CarTicket carTicket = parkingManager.executePark(new Car(),parkingBoy);
+
+        //then
+        assertNotNull(carTicket);
     }
 }
