@@ -3,14 +3,15 @@ package com.oocl.cultivation;
 import java.util.Comparator;
 import java.util.List;
 
-public class SmartParkingBoy implements ParkingAble {
+public class SmartParkingBoy extends ParkingBoy implements ParkingAble {
 
     private List<ParkingLot> parkingLots;
 
     public SmartParkingBoy(List<ParkingLot> parkingLots) {
-        this.parkingLots = parkingLots;
+        super(parkingLots);
     }
 
+    @Override
     public List<ParkingLot> getParkingLots() {
         return parkingLots;
     }
