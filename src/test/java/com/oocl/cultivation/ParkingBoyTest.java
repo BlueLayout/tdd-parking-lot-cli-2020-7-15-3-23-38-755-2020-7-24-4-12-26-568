@@ -74,6 +74,7 @@ class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(10);
 
         //when
+        parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Throwable exception = assertThrows(NoParkingTicketException.class, () -> {
             parkingBoy.fetch(null);
