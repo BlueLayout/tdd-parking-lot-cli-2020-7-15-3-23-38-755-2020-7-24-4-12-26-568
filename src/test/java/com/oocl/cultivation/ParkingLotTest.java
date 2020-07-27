@@ -1,8 +1,6 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Exception.InvalidTicketException;
 import com.oocl.cultivation.Exception.NoParkingSpaceException;
-import com.oocl.cultivation.Exception.NoParkingTicketException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
