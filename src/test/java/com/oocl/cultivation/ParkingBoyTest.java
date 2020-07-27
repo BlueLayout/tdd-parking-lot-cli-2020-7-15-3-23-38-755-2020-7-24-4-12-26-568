@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.Exception.InvalidTicketException;
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 import org.junit.jupiter.api.Test;
 
@@ -88,7 +89,7 @@ class ParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot(10);
         parkingLots.add(parkingLot);
-        
+
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         CarTicket carTicket = parkingBoy.park(new Car());
@@ -99,5 +100,25 @@ class ParkingBoyTest {
 
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    void should_throws_NoParkingSpaceException_when_parkingBoy_park_given_full_car() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot(3);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
+
+        //when
+        Throwable exception = assertThrows(NoParkingSpaceException.class,()->{
+            parkingBoy.park(new Car());
+        });
+
+        //then
+        assertEquals("Not enough position.",exception.getMessage());
     }
 }
