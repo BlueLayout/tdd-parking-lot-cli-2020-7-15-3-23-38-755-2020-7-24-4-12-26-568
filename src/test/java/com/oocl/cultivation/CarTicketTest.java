@@ -3,7 +3,6 @@ package com.oocl.cultivation;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CarTicketTest {
 
@@ -14,7 +13,7 @@ public class CarTicketTest {
         CarTicket carTicket2 = new CarTicket();
 
         //when
-        Boolean isSameCarTicket = carTicket1.equals(carTicket2);
+        boolean isSameCarTicket = carTicket1.equals(carTicket2);
 
         //then
         assertFalse(isSameCarTicket);
