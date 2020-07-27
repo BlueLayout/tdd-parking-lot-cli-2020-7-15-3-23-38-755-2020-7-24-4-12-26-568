@@ -53,12 +53,12 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        Car car = new Car();
 
         //when
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         CarTicket carTicket = parkingBoy.park(car);
-        Car carFetched = parkingLot.carOut(carTicket);
+        parkingLot.carOut(carTicket);
         Car carRepeat = parkingLot.carOut(carTicket);
 
         //then
