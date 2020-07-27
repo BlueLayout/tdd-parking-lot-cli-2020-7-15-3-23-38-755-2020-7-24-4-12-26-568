@@ -31,15 +31,15 @@ class ParkingBoyTest {
     @Test
     void should_return_car_when_parking_boy_fetch_car_given_carTicket() throws NoParkingTicketException, InvalidTicketException, NoParkingSpaceException {
         //given
-        CarTicket carTicket = new CarTicket();
         ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        CarTicket carTicket1 = parkingBoy.park(new Car());
-        Car car = parkingBoy.fetch(carTicket1);
+        CarTicket carTicket = parkingBoy.park(new Car());
+        Car car = parkingBoy.fetch(carTicket);
+
         //then
         assertNotNull(car);
     }
@@ -114,11 +114,11 @@ class ParkingBoyTest {
         parkingBoy.park(new Car());
 
         //when
-        Throwable exception = assertThrows(NoParkingSpaceException.class,()->{
+        Throwable exception = assertThrows(NoParkingSpaceException.class, () -> {
             parkingBoy.park(new Car());
         });
 
         //then
-        assertEquals("Not enough position.",exception.getMessage());
+        assertEquals("Not enough position.", exception.getMessage());
     }
 }
