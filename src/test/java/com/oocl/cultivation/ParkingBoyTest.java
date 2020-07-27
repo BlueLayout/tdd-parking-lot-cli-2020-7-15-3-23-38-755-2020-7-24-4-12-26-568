@@ -14,7 +14,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class ParkingBoyFacts {
+class ParkingBoyTest {
     //delete
     @Test
     void write_your_first_test() {
