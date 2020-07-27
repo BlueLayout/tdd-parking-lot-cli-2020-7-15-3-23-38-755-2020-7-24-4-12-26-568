@@ -12,12 +12,12 @@ public class CarTicket {
     }
 
     private String getRandomNum() {
-        String val = "";
+        String randomNum = "";
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
-            val += String.valueOf(random.nextInt(10));
+            randomNum += String.valueOf(random.nextInt(10));
         }
-        return val;
+        return randomNum;
     }
 
     @Override
