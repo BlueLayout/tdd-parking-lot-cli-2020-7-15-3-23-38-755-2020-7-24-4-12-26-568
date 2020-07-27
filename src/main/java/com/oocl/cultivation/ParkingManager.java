@@ -2,7 +2,7 @@ package com.oocl.cultivation;
 
 import java.util.ArrayList;
 import java.util.List;
-//naming format
+
 public class ParkingManager implements ParkingAble {
 
     private ParkingLot parkingLot;
@@ -32,7 +32,7 @@ public class ParkingManager implements ParkingAble {
         return parkingLot.carOut(carTicket);
     }
 
-    public CarTicket executePark(Car car, ParkingAble parkingAble){
+    public CarTicket executePark(Car car, ParkingAble parkingAble) {
         return parkingAble.park(car);
     }
 
