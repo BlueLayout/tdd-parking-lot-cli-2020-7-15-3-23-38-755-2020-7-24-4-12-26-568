@@ -65,24 +65,6 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_ticket_when_parkingLot_park_given_11_car() throws NoParkingSpaceException {
-
-        /*//given
-        ParkingLot parkingLot = new ParkingLot(10);
-        List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-
-        //when
-        for (int i = 0; i <= 9; i++) {
-            parkingBoy.park(new Car());
-        }
-        CarTicket carTicket = parkingBoy.park(new Car());
-
-        //then
-        assertNull(carTicket);*/
-    }
-
-    @Test
     void should_return_unrecognized_parking_ticket_when_parkingBoy_query_message_given_repeat_ticket() throws NoParkingTicketException, InvalidTicketException, NoParkingSpaceException {
         //given
         ParkingLot parkingLot = new ParkingLot(10);
