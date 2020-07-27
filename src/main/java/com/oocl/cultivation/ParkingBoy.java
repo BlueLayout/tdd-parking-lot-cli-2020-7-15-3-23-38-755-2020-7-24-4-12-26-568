@@ -47,16 +47,4 @@ public class ParkingBoy implements ParkingAble {
         throw new InvalidTicketException("Unrecognized parking ticket.");
     }
 
-    public String queryParkMessage(Car car) {
-        int capacity = 0;
-        for (ParkingLot parkingLot : parkingLots
-        ) {
-            capacity += parkingLot.getParkingRooms().size();
-        }
-        if (capacity == 20) {
-            return "Not enough position.";
-        }
-        return null;
-    }
-
 }
