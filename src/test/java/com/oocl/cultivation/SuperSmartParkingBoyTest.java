@@ -1,9 +1,5 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.SuperSmartParkingBoy;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
