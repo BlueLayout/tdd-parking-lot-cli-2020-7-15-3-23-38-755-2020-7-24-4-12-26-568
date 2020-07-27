@@ -14,14 +14,15 @@ public class SmartParkingBoyTest {
     void should_return_car_in_more_space_parking_when_smartParkingBoy_park_given_car() throws NoParkingSpaceException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot moreParkingLot = new ParkingLot(10);
-        moreParkingLot.carIn(new Car());
-        moreParkingLot.carIn(new Car());
-        moreParkingLot.carIn(new Car());
-        ParkingLot lessParkingLot = new ParkingLot(10);
-        lessParkingLot.carIn(new Car());
-        parkingLots.add(moreParkingLot);
-        parkingLots.add(lessParkingLot);
+        ParkingLot moreSpaceParkingLot = new ParkingLot(10);
+        moreSpaceParkingLot.carIn(new Car());
+        moreSpaceParkingLot.carIn(new Car());
+        moreSpaceParkingLot.carIn(new Car());
+
+        ParkingLot lessSpaceParkingLot = new ParkingLot(10);
+        lessSpaceParkingLot.carIn(new Car());
+        parkingLots.add(moreSpaceParkingLot);
+        parkingLots.add(lessSpaceParkingLot);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car();
 
