@@ -1,5 +1,7 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.NoParkingTicketException;
+
 import java.util.List;
 
 public class ParkingBoy implements ParkingAble {
@@ -29,7 +31,10 @@ public class ParkingBoy implements ParkingAble {
     }
 
     @Override
-    public Car fetch(CarTicket carTicket) {
+    public Car fetch(CarTicket carTicket) throws NoParkingTicketException {
+        if (carTicket == null) {
+            throw new NoParkingTicketException("Please provide your parking ticket.");
+        }
         for (ParkingLot parkingLot : parkingLots
         ) {
             Car car = parkingLot.carOut(carTicket);

@@ -27,7 +27,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    void should_return_car_when_parking_boy_fetch_car_given_carTicket() {
+    void should_return_car_when_parking_boy_fetch_car_given_carTicket() throws NoParkingTicketException {
         //given
         CarTicket carTicket = new CarTicket();
         ParkingLot parkingLot = new ParkingLot(10);

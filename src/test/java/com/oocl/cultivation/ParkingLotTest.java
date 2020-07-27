@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.NoParkingTicketException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_unrecognized_parking_ticket_when_parkingBoy_query_message_given_repeat_ticket() {
+    void should_return_unrecognized_parking_ticket_when_parkingBoy_query_message_given_repeat_ticket() throws NoParkingTicketException {
         //given
         ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
