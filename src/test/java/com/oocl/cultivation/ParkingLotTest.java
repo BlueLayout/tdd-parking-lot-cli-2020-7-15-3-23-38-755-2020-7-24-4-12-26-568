@@ -66,26 +66,6 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_not_enough_position_when_parkingBoy_queryParkMessage_given_parking_is_full() throws NoParkingSpaceException {
-        //given
-        /*ParkingLot parkingLot = new ParkingLot(10);
-        List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(parkingLot);
-        parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        for (int i = 0; i <= 19; i++) {
-            parkingBoy.park(new Car());
-        }
-
-        //when
-        Car car = new Car();
-        String message = parkingBoy.queryParkMessage(car);
-
-        //then
-        assertEquals("Not enough position.", message);*/
-    }
-
-    @Test
     void should_return_ticket_when_parkingBoy_park_given_car_11() throws NoParkingSpaceException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
