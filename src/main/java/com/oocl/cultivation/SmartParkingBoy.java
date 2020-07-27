@@ -23,7 +23,7 @@ public class SmartParkingBoy implements ParkingAble {
     public CarTicket park(Car car) {
         CarTicket carTicket;
         ParkingLot parkingLot = parkingLots.stream().max(Comparator.comparingInt(ParkingLot::checkSurplusCapacity)).orElse(null);
-        if (parkingLot!=null){
+        if (parkingLot != null) {
             carTicket = parkingLot.carIn(car);
             return carTicket;
         }
@@ -32,10 +32,10 @@ public class SmartParkingBoy implements ParkingAble {
 
     @Override
     public Car fetch(CarTicket carTicket) {
-        for (ParkingLot parkingLot:parkingLots
+        for (ParkingLot parkingLot : parkingLots
         ) {
             Car car = parkingLot.carOut(carTicket);
-            if (car!=null){
+            if (car != null) {
                 return car;
             }
         }
