@@ -1,12 +1,12 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.NoParkingTicketException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyTest {
 
@@ -64,4 +64,20 @@ class ParkingBoyTest {
         assertEquals(parkingBoy.getParkingLots().get(0).getParkingRooms().size(), 3);
     }
 
+
+    @Test
+    void should_throws_NoParkingTicketException_when_parkingBoy_fetch_given_null_ticket() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot(10);
+
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        Throwable exception = assertThrows(NoParkingTicketException.class,()->{
+            parkingBoy.fetch(null);
+        });
+
+        //then
+        assertEquals("Please provide your parking ticket.",exception.getMessage());
+    }
 }
