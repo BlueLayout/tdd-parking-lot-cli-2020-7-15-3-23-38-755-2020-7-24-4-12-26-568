@@ -10,16 +10,10 @@ import java.util.List;
 
 public class ParkingManager {
 
-    private ParkingLot parkingLot;
-
     private List<ParkingAble> parkingAbles = new ArrayList<>();
 
     public ParkingManager(ParkingAble... parkingAbles) {
         this.getParkingStaff().addAll(Arrays.asList(parkingAbles));
-    }
-
-    public ParkingManager(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
     }
 
     public List<ParkingAble> getParkingStaff() {

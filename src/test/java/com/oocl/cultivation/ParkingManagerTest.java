@@ -21,7 +21,7 @@ public class ParkingManagerTest {
         parkingLots.add(parkingLot);
 
         //when
-        ParkingManager parkingManager = new ParkingManager(parkingLot);
+        ParkingManager parkingManager = new ParkingManager();
         parkingManager.appendParkingBoy(new ParkingBoy(parkingLots));
 
         //then
@@ -37,7 +37,7 @@ public class ParkingManagerTest {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        ParkingManager parkingManager = new ParkingManager(parkingLot);
+        ParkingManager parkingManager = new ParkingManager(parkingBoy);
         CarTicket carTicket = parkingManager.parkStrategy(new Car(), parkingBoy);
 
         //then
@@ -53,7 +53,7 @@ public class ParkingManagerTest {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        ParkingManager parkingManager = new ParkingManager(parkingLot);
+        ParkingManager parkingManager = new ParkingManager(parkingBoy);
         CarTicket carTicket = parkingBoy.park(new Car());
         Car car = parkingManager.fetchStrategy(carTicket, parkingBoy);
 
