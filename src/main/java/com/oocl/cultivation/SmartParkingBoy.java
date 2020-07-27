@@ -15,11 +15,6 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingAble {
     }
 
     @Override
-    public List<ParkingLot> getParkingLots() {
-        return parkingLots;
-    }
-
-    @Override
     public CarTicket park(Car car) throws NoParkingSpaceException {
         CarTicket carTicket;
         ParkingLot parkingLot = parkingLots.stream().max(Comparator.comparingInt(ParkingLot::checkSurplusCapacity)).orElse(null);
