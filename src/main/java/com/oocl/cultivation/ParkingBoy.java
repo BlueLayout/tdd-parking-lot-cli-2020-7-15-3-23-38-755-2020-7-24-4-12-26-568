@@ -15,10 +15,6 @@ public class ParkingBoy implements ParkingAble {
         return parkingLots;
     }
 
-    public void setParkingLots(List<ParkingLot> parkingLots) {
-        this.parkingLots = parkingLots;
-    }
-
     @Override
     public CarTicket park(Car car) {
         CarTicket carTicket;
