@@ -9,7 +9,7 @@ public class ParkingLot {
 
     private String id;
 
-    private int capacity ;
+    private int capacity;
 
     private Map<CarTicket, Car> parkingRooms;
 
@@ -24,8 +24,8 @@ public class ParkingLot {
         this.parkingRooms = new HashMap<>();
     }
 
-    public CarTicket carIn(Car car){
-        if (capacity>parkingRooms.size()){
+    public CarTicket carIn(Car car) {
+        if (capacity > parkingRooms.size()) {
             CarTicket carTicket = new CarTicket();
             parkingRooms.put(carTicket, car);
             return carTicket;
@@ -33,7 +33,7 @@ public class ParkingLot {
         return null;
     }
 
-    public Car carOut(CarTicket carTicket){
+    public Car carOut(CarTicket carTicket) {
         return parkingRooms.remove(carTicket);
     }
 
@@ -45,15 +45,15 @@ public class ParkingLot {
         this.parkingRooms = parkingRooms;
     }
 
-    public int checkSurplusCapacity(){
-        return capacity-parkingRooms.size();
+    public int checkSurplusCapacity() {
+        return capacity - parkingRooms.size();
     }
 
-    public double getUseRateLot(){
+    public double getUseRateLot() {
         BigDecimal p = BigDecimal.valueOf(parkingRooms.size());
         BigDecimal c = BigDecimal.valueOf(capacity);
-        if (p.compareTo(BigDecimal.ZERO)!=0&&c.compareTo(BigDecimal.ZERO)!=0){
-            return p.divide(c,10,BigDecimal.ROUND_HALF_UP).doubleValue();
+        if (p.compareTo(BigDecimal.ZERO) != 0 && c.compareTo(BigDecimal.ZERO) != 0) {
+            return p.divide(c, 10, BigDecimal.ROUND_HALF_UP).doubleValue();
         }
         return 0;
     }
