@@ -3,23 +3,23 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 import java.util.List;
 //naming format
-public class ParkingManager implements ParkingStaff{
+public class ParkingManager implements ParkingAble {
 
     private ParkingLot parkingLot;
 
-    private List<ParkingStaff> parkingStaffs;
+    private List<ParkingAble> parkingAbles;
 
     public ParkingManager(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
-        parkingStaffs = new ArrayList<>();
+        parkingAbles = new ArrayList<>();
     }
 
-    public List<ParkingStaff> getParkingStaff() {
-        return parkingStaffs;
+    public List<ParkingAble> getParkingStaff() {
+        return parkingAbles;
     }
 
-    public void appendParkingBoy(ParkingStaff parkingStaff) {
-        parkingStaffs.add(parkingStaff);
+    public void appendParkingBoy(ParkingAble parkingAble) {
+        parkingAbles.add(parkingAble);
     }
 
     @Override
@@ -32,11 +32,11 @@ public class ParkingManager implements ParkingStaff{
         return parkingLot.carOut(carTicket);
     }
 
-    public CarTicket executePark(Car car,ParkingStaff parkingStaff){
-        return parkingStaff.park(car);
+    public CarTicket executePark(Car car, ParkingAble parkingAble){
+        return parkingAble.park(car);
     }
 
-    public Car executeFetch(CarTicket carTicket, ParkingStaff parkingStaff) {
-        return parkingStaff.fetch(carTicket);
+    public Car executeFetch(CarTicket carTicket, ParkingAble parkingAble) {
+        return parkingAble.fetch(carTicket);
     }
 }

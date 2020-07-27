@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.Comparator;
 import java.util.List;
 
-public class SuperSmartParkingBoy implements ParkingStaff{
+public class SuperSmartParkingBoy implements ParkingAble {
 
     private List<ParkingLot> parkingLots;
 

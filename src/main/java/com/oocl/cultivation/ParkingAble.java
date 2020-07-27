@@ -1,6 +1,6 @@
 package com.oocl.cultivation;
 
-public interface ParkingStaff {
+public interface ParkingAble {
 
     CarTicket park(Car car);
 
