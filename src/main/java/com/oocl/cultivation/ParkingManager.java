@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.Exception.InvalidTicketException;
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class ParkingManager implements ParkingAble {
         return parkingLot.carOut(carTicket);
     }
 
-    public CarTicket executePark(Car car, ParkingAble parkingAble) {
+    public CarTicket executePark(Car car, ParkingAble parkingAble) throws NoParkingSpaceException {
         return parkingAble.park(car);
     }
 

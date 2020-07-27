@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkingBoyTest {
 
     @Test
-    void should_return_ticket_when_parking_boy_park_given_car() {
+    void should_return_ticket_when_parking_boy_park_given_car() throws NoParkingSpaceException {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot(10);
@@ -29,7 +29,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    void should_return_car_when_parking_boy_fetch_car_given_carTicket() throws NoParkingTicketException, InvalidTicketException {
+    void should_return_car_when_parking_boy_fetch_car_given_carTicket() throws NoParkingTicketException, InvalidTicketException, NoParkingSpaceException {
         //given
         CarTicket carTicket = new CarTicket();
         ParkingLot parkingLot = new ParkingLot(10);
@@ -45,7 +45,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    void should_return_more_ticket_when_parking_boy_park_given_more_car() {
+    void should_return_more_ticket_when_parking_boy_park_given_more_car() throws NoParkingSpaceException {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -84,7 +84,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    void should_throws_InvalidTicketException_when_parkingBoy_fetch_given_repeat_ticket() throws NoParkingTicketException, InvalidTicketException {
+    void should_throws_InvalidTicketException_when_parkingBoy_fetch_given_repeat_ticket() throws NoParkingTicketException, InvalidTicketException, NoParkingSpaceException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot(10);
@@ -103,7 +103,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    void should_throws_NoParkingSpaceException_when_parkingBoy_park_given_full_car() {
+    void should_throws_NoParkingSpaceException_when_parkingBoy_park_given_full_car() throws NoParkingSpaceException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot(3);

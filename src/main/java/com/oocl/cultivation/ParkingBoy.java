@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.Exception.InvalidTicketException;
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class ParkingBoy implements ParkingAble {
     }
 
     @Override
-    public CarTicket park(Car car) {
+    public CarTicket park(Car car) throws NoParkingSpaceException {
         CarTicket carTicket;
         for (ParkingLot parkingLot : parkingLots
         ) {
@@ -28,7 +29,7 @@ public class ParkingBoy implements ParkingAble {
                 return carTicket;
             }
         }
-        return null;
+        throw new NoParkingSpaceException("Not enough position.");
     }
 
     @Override

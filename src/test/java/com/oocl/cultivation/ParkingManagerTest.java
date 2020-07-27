@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.Exception.InvalidTicketException;
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 import org.junit.jupiter.api.Test;
 
@@ -55,7 +56,7 @@ public class ParkingManagerTest {
     }
 
     @Test
-    void should_return_ticket_when_parkingManager_executePark_given_car_and_parkingBoy() {
+    void should_return_ticket_when_parkingManager_executePark_given_car_and_parkingBoy() throws NoParkingSpaceException {
         //given
         ParkingLot parkingLot = new ParkingLot("1", 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
