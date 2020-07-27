@@ -1,4 +1,4 @@
-package com.oocl.cultivation.test;
+package com.oocl.cultivation;
 
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.CarTicket;
@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ParkingBoyFacts {
+    //delete
     @Test
     void write_your_first_test() {
 
@@ -46,7 +47,8 @@ class ParkingBoyFacts {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        Car car = parkingBoy.fetch(carTicket);
+        CarTicket carTicket1 = parkingBoy.park(new Car());
+        Car car = parkingBoy.fetch(carTicket1);
         //then
         assertNotNull(car);
     }
