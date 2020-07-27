@@ -1,5 +1,7 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -13,14 +15,14 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingAble {
     }
 
     @Override
-    public CarTicket park(Car car) {
+    public CarTicket park(Car car) throws NoParkingSpaceException {
         CarTicket carTicket;
         ParkingLot parkingLot = parkingLots.stream().min(Comparator.comparingDouble(ParkingLot::getUseRateLot)).orElse(null);
         if (parkingLot != null) {
             carTicket = parkingLot.carIn(car);
             return carTicket;
         }
-        return null;
+        throw new NoParkingSpaceException("Not enough position.");
     }
 
 }

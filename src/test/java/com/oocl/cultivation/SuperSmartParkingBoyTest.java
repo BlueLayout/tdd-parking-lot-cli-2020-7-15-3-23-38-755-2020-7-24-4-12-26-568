@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SuperSmartParkingBoyTest {
 
     @Test
-    void should_return_car_in_larger_available_position_rate_when_superSmartParkingBoy_given_car() {
+    void should_return_car_in_larger_available_position_rate_when_superSmartParkingBoy_given_car() throws NoParkingSpaceException {
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot smallAvailablePositionRateLot = new ParkingLot(30);
