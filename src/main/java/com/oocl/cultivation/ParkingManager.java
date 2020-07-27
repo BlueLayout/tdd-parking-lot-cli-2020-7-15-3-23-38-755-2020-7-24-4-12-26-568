@@ -5,17 +5,21 @@ import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class ParkingManager implements ParkingAble {
+public class ParkingManager {
 
     private ParkingLot parkingLot;
 
-    private List<ParkingAble> parkingAbles;
+    private List<ParkingAble> parkingAbles = new ArrayList<>();
+
+    public ParkingManager(ParkingAble... parkingAbles) {
+        this.getParkingStaff().addAll(Arrays.asList(parkingAbles));
+    }
 
     public ParkingManager(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
-        parkingAbles = new ArrayList<>();
     }
 
     public List<ParkingAble> getParkingStaff() {
@@ -24,16 +28,6 @@ public class ParkingManager implements ParkingAble {
 
     public void appendParkingBoy(ParkingAble parkingAble) {
         parkingAbles.add(parkingAble);
-    }
-
-    @Override
-    public CarTicket park(Car car) {
-        return parkingLot.carIn(car);
-    }
-
-    @Override
-    public Car fetch(CarTicket carTicket) {
-        return parkingLot.carOut(carTicket);
     }
 
     public CarTicket parkStrategy(Car car, ParkingAble parkingAble) throws NoParkingSpaceException {
