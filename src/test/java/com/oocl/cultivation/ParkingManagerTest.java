@@ -45,7 +45,7 @@ public class ParkingManagerTest {
     }
 
     @Test
-    void should_return_car_when_parkingManager_executeFetch_given_ticket_and_parkingBoy() throws NoParkingTicketException, InvalidTicketException {
+    void should_return_car_when_parkingManager_executeFetch_given_ticket_and_parkingBoy() throws NoParkingTicketException, InvalidTicketException, NoParkingSpaceException {
         //given
         ParkingLot parkingLot = new ParkingLot("1", 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
@@ -54,7 +54,7 @@ public class ParkingManagerTest {
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingManager parkingManager = new ParkingManager(parkingLot);
-        CarTicket carTicket = parkingManager.park(new Car());
+        CarTicket carTicket = parkingBoy.park(new Car());
         Car car = parkingManager.fetchStrategy(carTicket, parkingBoy);
 
         //then
