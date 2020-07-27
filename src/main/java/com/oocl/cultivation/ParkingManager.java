@@ -2,7 +2,7 @@ package com.oocl.cultivation;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//naming format
 public class ParkingManager implements ParkingStaff{
 
     private ParkingLot parkingLot;
