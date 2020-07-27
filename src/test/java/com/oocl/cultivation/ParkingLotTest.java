@@ -18,10 +18,10 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        Car car = new Car();
 
         //when
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         CarTicket carTicket = parkingBoy.park(car);
         Car carFetched = parkingLot.carOut(carTicket);
 
@@ -30,15 +30,16 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_car_when_parkingLot_fetch_given_wrong_ticket() {
+    void should_return_no_car_when_parkingLot_fetch_given_wrong_ticket() throws NoParkingSpaceException {
         //given
         ParkingLot parkingLot = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        Car car = new Car();
 
         //when
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        parkingBoy.park(car);
         CarTicket wrongTicket = new CarTicket();
         Car carFetched = parkingLot.carOut(wrongTicket);
 
