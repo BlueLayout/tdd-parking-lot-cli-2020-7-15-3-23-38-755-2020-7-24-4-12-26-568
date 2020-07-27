@@ -66,24 +66,6 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_unrecognized_parking_ticket_when_parkingBoy_query_message_given_repeat_ticket() throws NoParkingTicketException, InvalidTicketException, NoParkingSpaceException {
-        //given
-        ParkingLot parkingLot = new ParkingLot(10);
-        List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        Car car = new Car();
-
-        //when
-        CarTicket carTicket = parkingBoy.park(car);
-        Car carFetch = parkingBoy.fetch(carTicket);
-        String message = parkingBoy.queryMessage(carTicket);
-
-        //then
-        assertEquals("Unrecognized parking ticket.", message);
-    }
-
-    @Test
     void should_return_please_provide_your_parking_ticket_when_parkingBoy_query_message_given_null_ticket() throws NoParkingSpaceException {
         //given
         ParkingLot parkingLot = new ParkingLot(10);
