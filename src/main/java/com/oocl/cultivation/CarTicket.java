@@ -19,7 +19,7 @@ public class CarTicket {
         return ticketBarcode;
     }
 
-    private String getRandomNum(){
+    private String getRandomNum() {
         String val = "";
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
