@@ -1,25 +1,14 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
-import sun.security.krb5.internal.PAData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class ParkingBoyTest {
-    //delete
-    @Test
-    void write_your_first_test() {
-
-    }
 
     @Test
     void should_return_ticket_when_parking_boy_park_given_car() {
@@ -66,13 +55,13 @@ class ParkingBoyTest {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        for (Car car:cars
-             ) {
+        for (Car car : cars
+        ) {
             parkingBoy.park(car);
         }
 
         //then
-        assertEquals(parkingBoy.getParkingLots().get(0).getParkingRooms().size(),3);
+        assertEquals(parkingBoy.getParkingLots().get(0).getParkingRooms().size(), 3);
     }
 
 }
