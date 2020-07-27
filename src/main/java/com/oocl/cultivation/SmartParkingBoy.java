@@ -30,15 +30,4 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingAble {
         throw new NoParkingSpaceException("Not enough position.");
     }
 
-    @Override
-    public Car fetch(CarTicket carTicket) {
-        for (ParkingLot parkingLot : parkingLots
-        ) {
-            Car car = parkingLot.carOut(carTicket);
-            if (car != null) {
-                return car;
-            }
-        }
-        return null;
-    }
 }
