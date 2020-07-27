@@ -3,14 +3,16 @@ package com.oocl.cultivation;
 import java.util.Comparator;
 import java.util.List;
 
-public class SuperSmartParkingBoy implements ParkingAble {
+public class SuperSmartParkingBoy extends ParkingBoy implements ParkingAble {
 
     private List<ParkingLot> parkingLots;
 
     public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
         this.parkingLots = parkingLots;
     }
 
+    @Override
     public List<ParkingLot> getParkingLots() {
         return parkingLots;
     }
