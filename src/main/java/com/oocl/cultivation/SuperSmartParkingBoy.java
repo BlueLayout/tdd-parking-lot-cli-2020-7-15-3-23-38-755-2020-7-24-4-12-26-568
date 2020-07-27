@@ -13,11 +13,6 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingAble {
     }
 
     @Override
-    public List<ParkingLot> getParkingLots() {
-        return parkingLots;
-    }
-
-    @Override
     public CarTicket park(Car car) {
         CarTicket carTicket;
         ParkingLot parkingLot = parkingLots.stream().min(Comparator.comparingDouble(ParkingLot::getUseRateLot)).orElse(null);
