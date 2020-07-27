@@ -29,20 +29,6 @@ public class ParkingManagerTest {
     }
 
     @Test
-    void should_return_car_when_parkingManager_park_given_car() {
-        //given
-        ParkingLot parkingLot = new ParkingLot("1", 10);
-
-        //when
-        ParkingManager parkingManager = new ParkingManager(parkingLot);
-        CarTicket carTicket = parkingManager.park(new Car());
-        Car car = parkingManager.fetch(carTicket);
-
-        //then
-        assertNotNull(car);
-    }
-
-    @Test
     void should_return_ticket_when_parkingManager_executePark_given_car_and_parkingBoy() throws NoParkingSpaceException {
         //given
         ParkingLot parkingLot = new ParkingLot("1", 10);
