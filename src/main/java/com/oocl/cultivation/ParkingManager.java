@@ -36,11 +36,11 @@ public class ParkingManager implements ParkingAble {
         return parkingLot.carOut(carTicket);
     }
 
-    public CarTicket executePark(Car car, ParkingAble parkingAble) throws NoParkingSpaceException {
+    public CarTicket parkStrategy(Car car, ParkingAble parkingAble) throws NoParkingSpaceException {
         return parkingAble.park(car);
     }
 
-    public Car executeFetch(CarTicket carTicket, ParkingAble parkingAble) throws NoParkingTicketException, InvalidTicketException {
+    public Car fetchStrategy(CarTicket carTicket, ParkingAble parkingAble) throws NoParkingTicketException, InvalidTicketException {
         return parkingAble.fetch(carTicket);
     }
 }

@@ -65,7 +65,7 @@ public class ParkingManagerTest {
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingManager parkingManager = new ParkingManager(parkingLot);
-        CarTicket carTicket = parkingManager.executePark(new Car(), parkingBoy);
+        CarTicket carTicket = parkingManager.parkStrategy(new Car(), parkingBoy);
 
         //then
         assertNotNull(carTicket);
@@ -82,7 +82,7 @@ public class ParkingManagerTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingManager parkingManager = new ParkingManager(parkingLot);
         CarTicket carTicket = parkingManager.park(new Car());
-        Car car = parkingManager.executeFetch(carTicket, parkingBoy);
+        Car car = parkingManager.fetchStrategy(carTicket, parkingBoy);
 
         //then
         assertNotNull(car);
