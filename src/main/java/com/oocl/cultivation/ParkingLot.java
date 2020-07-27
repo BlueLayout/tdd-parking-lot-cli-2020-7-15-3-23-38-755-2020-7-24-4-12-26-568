@@ -41,10 +41,6 @@ public class ParkingLot {
         return parkingRooms;
     }
 
-    public void setParkingRooms(Map<CarTicket, Car> parkingRooms) {
-        this.parkingRooms = parkingRooms;
-    }
-
     public int checkSurplusCapacity() {
         return capacity - parkingRooms.size();
     }
