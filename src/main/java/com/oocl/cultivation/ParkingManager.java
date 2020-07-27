@@ -32,11 +32,4 @@ public class ParkingManager {
         return parkingAble.fetch(carTicket);
     }
 
-    public ParkingAble pickUp(){
-        return parkingAbles.stream().filter(this::isNull).findAny().get();
-    }
-
-    private boolean isNull(ParkingAble parkingAble) {
-        return true;
-    }
 }
