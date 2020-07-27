@@ -23,15 +23,4 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingAble {
         return null;
     }
 
-    @Override
-    public Car fetch(CarTicket carTicket) {
-        for (ParkingLot parkingLot : parkingLots
-        ) {
-            Car car = parkingLot.carOut(carTicket);
-            if (car != null) {
-                return car;
-            }
-        }
-        return null;
-    }
 }
