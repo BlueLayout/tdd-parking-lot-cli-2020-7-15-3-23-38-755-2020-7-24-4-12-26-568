@@ -15,10 +15,6 @@ public class CarTicket {
         this.ticketBarcode = getRandomNum();
     }
 
-    public String getTicketBarcode() {
-        return ticketBarcode;
-    }
-
     private String getRandomNum() {
         String val = "";
         Random random = new Random();
