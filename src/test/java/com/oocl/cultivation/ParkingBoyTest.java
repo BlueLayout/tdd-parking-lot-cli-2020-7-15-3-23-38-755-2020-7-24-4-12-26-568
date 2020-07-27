@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.InvalidTicketException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ class ParkingBoyTest {
     }
 
     @Test
-    void should_return_car_when_parking_boy_fetch_car_given_carTicket() throws NoParkingTicketException {
+    void should_return_car_when_parking_boy_fetch_car_given_carTicket() throws NoParkingTicketException, InvalidTicketException {
         //given
         CarTicket carTicket = new CarTicket();
         ParkingLot parkingLot = new ParkingLot(10);
@@ -73,11 +74,30 @@ class ParkingBoyTest {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        Throwable exception = assertThrows(NoParkingTicketException.class,()->{
+        Throwable exception = assertThrows(NoParkingTicketException.class, () -> {
             parkingBoy.fetch(null);
         });
 
         //then
-        assertEquals("Please provide your parking ticket.",exception.getMessage());
+        assertEquals("Please provide your parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    void should_throws_InvalidTicketException_when_parkingBoy_fetch_given_repeat_ticket() throws NoParkingTicketException, InvalidTicketException {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot(10);
+        parkingLots.add(parkingLot);
+        
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        CarTicket carTicket = parkingBoy.park(new Car());
+        parkingBoy.fetch(carTicket);
+        Throwable exception = assertThrows(InvalidTicketException.class, () -> {
+            parkingBoy.fetch(carTicket);
+        });
+
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
 }

@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Exception.InvalidTicketException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class ParkingBoy implements ParkingAble {
     }
 
     @Override
-    public Car fetch(CarTicket carTicket) throws NoParkingTicketException {
+    public Car fetch(CarTicket carTicket) throws NoParkingTicketException, InvalidTicketException {
         if (carTicket == null) {
             throw new NoParkingTicketException("Please provide your parking ticket.");
         }
@@ -42,7 +43,7 @@ public class ParkingBoy implements ParkingAble {
                 return car;
             }
         }
-        return null;
+        throw new InvalidTicketException("Unrecognized parking ticket.");
     }
 
     public String queryMessage(CarTicket carTicket) {
