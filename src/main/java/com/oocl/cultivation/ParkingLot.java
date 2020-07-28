@@ -41,11 +41,11 @@ public class ParkingLot {
         return parkingRooms;
     }
 
-    public int checkSurplusCapacity() {
+    int checkSurplusCapacity() {
         return capacity - parkingRooms.size();
     }
 
-    public double getUseRateLot() {
+    double getUseRateLot() {
         BigDecimal p = BigDecimal.valueOf(parkingRooms.size());
         BigDecimal c = BigDecimal.valueOf(capacity);
         if (p.compareTo(BigDecimal.ZERO) != 0 && c.compareTo(BigDecimal.ZERO) != 0) {
