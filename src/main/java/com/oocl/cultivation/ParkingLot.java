@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ParkingLot {
 
-    private static final int DEFAULT_USE_RATE = 0;
+    private static final int DEFAULT_USE_RATE = 1;
     private String id;
 
     private int capacity;
