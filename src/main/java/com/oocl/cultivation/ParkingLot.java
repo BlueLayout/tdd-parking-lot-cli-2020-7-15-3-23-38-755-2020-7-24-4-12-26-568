@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class ParkingLot {
 
+    private static final int DEFAULT_USE_RATE = 0;
     private String id;
 
     private int capacity;
@@ -51,6 +52,6 @@ public class ParkingLot {
         if (dividend.compareTo(BigDecimal.ZERO) != 0 && divisor.compareTo(BigDecimal.ZERO) != 0) {
             return dividend.divide(divisor, 10, BigDecimal.ROUND_HALF_UP).doubleValue();
         }
-        return 0;
+        return DEFAULT_USE_RATE;
     }
 }
