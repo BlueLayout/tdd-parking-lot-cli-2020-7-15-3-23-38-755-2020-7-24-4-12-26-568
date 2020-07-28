@@ -46,10 +46,10 @@ public class ParkingLot {
     }
 
     double getUseRateLot() {
-        BigDecimal p = BigDecimal.valueOf(parkingRooms.size());
-        BigDecimal c = BigDecimal.valueOf(capacity);
-        if (p.compareTo(BigDecimal.ZERO) != 0 && c.compareTo(BigDecimal.ZERO) != 0) {
-            return p.divide(c, 10, BigDecimal.ROUND_HALF_UP).doubleValue();
+        BigDecimal dividend = BigDecimal.valueOf(parkingRooms.size());
+        BigDecimal divisor = BigDecimal.valueOf(capacity);
+        if (dividend.compareTo(BigDecimal.ZERO) != 0 && divisor.compareTo(BigDecimal.ZERO) != 0) {
+            return dividend.divide(divisor, 10, BigDecimal.ROUND_HALF_UP).doubleValue();
         }
         return 0;
     }
