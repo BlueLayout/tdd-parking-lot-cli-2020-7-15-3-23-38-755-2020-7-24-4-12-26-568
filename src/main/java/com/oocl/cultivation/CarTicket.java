@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class CarTicket {
 
+    private static final int NUM_COUNT = 10;
+    private static final int RANDOM_NUMBER_BOUND = 10;
     private String ticketBarcode;
 
     public CarTicket() {
@@ -12,12 +14,12 @@ public class CarTicket {
     }
 
     private String getRandomNum() {
-        String randomNum = "";
+        StringBuilder randomNum = new StringBuilder();
         Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            randomNum += String.valueOf(random.nextInt(10));
+        for (int i = 0; i < NUM_COUNT; i++) {
+            randomNum.append(random.nextInt(RANDOM_NUMBER_BOUND));
         }
-        return randomNum;
+        return randomNum.toString();
     }
 
     @Override
