@@ -22,6 +22,7 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingAble {
             carTicket = parkingLot.carIn(car);
             return carTicket;
         }
+        //// TODO: 7/28/2020
         throw new NoParkingSpaceException("Not enough position.");
     }
 

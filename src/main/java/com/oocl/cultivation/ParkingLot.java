@@ -1,11 +1,15 @@
 package com.oocl.cultivation;
 
 
+import com.oocl.cultivation.Exception.InvalidTicketException;
+import com.oocl.cultivation.Exception.NoParkingSpaceException;
+import com.oocl.cultivation.Exception.NoParkingTicketException;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ParkingLot {
+public class ParkingLot implements ParkingAble{
 
     private static final int DEFAULT_USE_RATE = 1;
     private String id;
@@ -53,5 +57,15 @@ public class ParkingLot {
             return dividend.divide(divisor, 10, BigDecimal.ROUND_HALF_UP).doubleValue();
         }
         return DEFAULT_USE_RATE;
+    }
+
+    @Override
+    public CarTicket park(Car car) throws NoParkingSpaceException {
+        return null;
+    }
+
+    @Override
+    public Car fetch(CarTicket carTicket) throws NoParkingTicketException, InvalidTicketException {
+        return null;
     }
 }

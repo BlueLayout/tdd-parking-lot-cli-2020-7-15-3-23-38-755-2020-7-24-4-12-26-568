@@ -16,6 +16,7 @@ public class ParkingManager {
         this.getParkingStaff().addAll(Arrays.asList(parkingAbles));
     }
 
+    //todo rename getParkingStaff
     public List<ParkingAble> getParkingStaff() {
         return parkingAbles;
     }
