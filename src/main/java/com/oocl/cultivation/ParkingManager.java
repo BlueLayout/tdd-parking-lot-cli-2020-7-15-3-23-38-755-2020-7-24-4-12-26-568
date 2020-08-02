@@ -1,23 +1,25 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Constant.ExceptionMessage;
 import com.oocl.cultivation.Exception.InvalidTicketException;
+import com.oocl.cultivation.Exception.NoAvailableParkableException;
 import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ParkingManager {
 
     private List<ParkingAble> parkingAbles = new ArrayList<>();
 
+    private Map<ParkingAble, Boolean> workStatus = new HashMap<>();
+
     public ParkingManager(ParkingAble... parkingAbles) {
-        this.getParkingStaff().addAll(Arrays.asList(parkingAbles));
+        this.getParkingAbles().addAll(Arrays.asList(parkingAbles));
+        getParkingAbles().forEach(x -> workStatus.put(x, true));
     }
 
-    //todo rename getParkingStaff
-    public List<ParkingAble> getParkingStaff() {
+    public List<ParkingAble> getParkingAbles() {
         return parkingAbles;
     }
 
@@ -25,12 +27,24 @@ public class ParkingManager {
         parkingAbles.add(parkingAble);
     }
 
-    public CarTicket parkStrategy(Car car, ParkingAble parkingAble) throws NoParkingSpaceException {
-        return parkingAble.park(car);
+    public CarTicket parkStrategy(Car car) throws NoParkingSpaceException, NoAvailableParkableException {
+        ParkingAble parkingAble = parkingAbles.stream().filter(this::isAvailable).findFirst().orElse(null);
+        if (Objects.nonNull(parkingAble)) {
+            return parkingAble.park(car);
+        }
+        throw new NoAvailableParkableException(ExceptionMessage.NO_AVAILABLE_PARKABLE.getMessage());
     }
 
-    public Car fetchStrategy(CarTicket carTicket, ParkingAble parkingAble) throws NoParkingTicketException, InvalidTicketException {
-        return parkingAble.fetch(carTicket);
+    public Car fetchStrategy(CarTicket carTicket) throws NoParkingTicketException, InvalidTicketException, NoAvailableParkableException {
+        ParkingAble parkingAble = parkingAbles.stream().filter(this::isAvailable).findFirst().orElse(null);
+        if (Objects.nonNull(parkingAble)) {
+            return parkingAble.fetch(carTicket);
+        }
+        throw new NoAvailableParkableException(ExceptionMessage.NO_AVAILABLE_PARKABLE.getMessage());
+    }
+
+    private Boolean isAvailable(ParkingAble parkingAble) {
+        return workStatus.get(parkingAble);
     }
 
 }

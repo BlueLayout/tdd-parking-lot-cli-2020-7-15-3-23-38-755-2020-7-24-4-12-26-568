@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Constant.ExceptionMessage;
 import com.oocl.cultivation.Exception.InvalidTicketException;
 import com.oocl.cultivation.Exception.NoParkingSpaceException;
 import com.oocl.cultivation.Exception.NoParkingTicketException;
@@ -28,14 +29,13 @@ public class ParkingBoy implements ParkingAble {
                 return carTicket;
             }
         }
-        //todo extract constant string
-        throw new NoParkingSpaceException("Not enough position.");
+        throw new NoParkingSpaceException(ExceptionMessage.NO_ENOUGH_POSITION.getMessage());
     }
 
     @Override
     public Car fetch(CarTicket carTicket) throws NoParkingTicketException, InvalidTicketException {
         if (carTicket == null) {
-            throw new NoParkingTicketException("Please provide your parking ticket.");
+            throw new NoParkingTicketException(ExceptionMessage.NO_PARKING_TICKET.getMessage());
         }
         for (ParkingLot parkingLot : parkingLots
         ) {
@@ -44,7 +44,7 @@ public class ParkingBoy implements ParkingAble {
                 return car;
             }
         }
-        throw new InvalidTicketException("Unrecognized parking ticket.");
+        throw new InvalidTicketException(ExceptionMessage.UNRECOGNIZED_PARKING_TICKET.getMessage());
     }
 
 }

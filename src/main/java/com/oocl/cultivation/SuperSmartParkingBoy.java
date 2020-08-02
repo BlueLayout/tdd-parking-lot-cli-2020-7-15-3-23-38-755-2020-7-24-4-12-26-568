@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.Constant.ExceptionMessage;
 import com.oocl.cultivation.Exception.NoParkingSpaceException;
 
 import java.util.Comparator;
@@ -22,8 +23,7 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingAble {
             carTicket = parkingLot.carIn(car);
             return carTicket;
         }
-        // TODO: 7/28/2020
-        throw new NoParkingSpaceException("Not enough position.");
+        throw new NoParkingSpaceException(ExceptionMessage.NO_ENOUGH_POSITION.getMessage());
     }
 
 }
